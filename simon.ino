@@ -66,10 +66,10 @@ void loop() {
     }
   }
 
+  bool pressed = false;
   byte presses = 0;
   while (presses < patternLen) {
 
-    bool pressed = false;
     byte anyPressed = 0;
 
     // red

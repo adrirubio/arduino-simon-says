@@ -34,4 +34,42 @@ void loop() {
     Serial.print('');
   }
   Serial.println();
+
+  while (true) {
+    static bool pressed = false;
+    byte anyPressed = 0;
+
+    // red
+    if (digitalRead(9) == LOW) {
+      digitalWrite(3, HIGH);
+      anyPressed = 1;
+    } else {
+      digitalWrite(3, LOW)
+    }
+
+    // yellow
+    if (digitalRead(10) == LOW) {
+      digitalWrite(4, HIGH);
+      anyPressed = 2;
+    } else {
+      digitalWrite(4, LOW)
+    }
+
+    // blue
+    if (digitalRead(11) == LOW) {
+      digitalWrite(5, HIGH);
+      anyPressed = 3;
+    } else {
+      digitalWrite(5, LOW);
+    }
+
+    // green
+    if (digitalRead(12) == LOW) {
+      digitalWrite(6, HIGH);
+      anyPressed = 4;
+    } else {
+      digitalWrite(6, LOW)
+    }
+
+  }
 }

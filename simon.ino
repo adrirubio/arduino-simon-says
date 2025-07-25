@@ -68,6 +68,8 @@ void loop() {
 
   bool pressed = false;
   byte presses = 0;
+  byte lastPressed = 0;
+
   while (presses < patternLen) {
 
     byte anyPressed = 0;
@@ -106,11 +108,20 @@ void loop() {
 
     if (anyPressed && !pressed) {
       pressed = true;
+      lastPressed = anyPressed;
     }
 
     if (!anyPressed && pressed) {
       pressed = false;
-      presses++;
+      if (lastPressed == pattern[presses]) {
+        presses++;
+      } else {
+        Serial.println("Wrong button, game over!");
+        delay(500);
+
+        // End game
+        while (true);
+      }
     }
   }
   startOfRound = true;

@@ -71,5 +71,16 @@ void loop() {
       digitalWrite(6, LOW)
     }
 
+    if (!anyPressed && !pressed) {
+      pressed = true;
+      if (patternLen < max_steps)
+        pattern[patternLen++] = random(1, 5);
+    }
+
+    if (!anyPressed && pressed) {
+      pressed = false;
+      break;
+    }
   }
+  delay(100);
 }

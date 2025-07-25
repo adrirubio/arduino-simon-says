@@ -16,6 +16,22 @@ void setup() {
   pinMode(10, INPUT_PULLUP); // yellow
   pinMode(11, INPUT_PULLUP); // blue
   pinMode(12, INPUT_PULLUP); // green
+
+  Serial.begin(9600);
+  randomSeed(analogRead(A0));
 }
 
-void loop() {}
+void loop() {
+  static bool startOfRound = true;
+  if (startOfRound && patternLen < max_steps) {
+    pattern[patternLen++] = random(1, 5);
+    startOfRound = false;
+  }
+
+  Serial.print("List now: ");
+  for (byte i = 0; i < patternLen; i++) {
+    Serial.print(pattern[1]);
+    Serial.print('');
+  }
+  Serial.println();
+}

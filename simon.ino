@@ -38,15 +38,31 @@ void loop() {
   for (byte value : pattern) {
     if (value == 1) {
       Serial.println("value = 1");
+      digitalWrite(3, HIGH);
+      delay(500);
+      digitalWrite(3, LOW);
+      delay(200);
     }
     if (value == 2) {
       Serial.println("value = 2");
+      digitalWrite(4, HIGH);
+      delay(500);
+      digitalWrite(4, LOW);
+      delay(200);
     }
     if (value == 3) {
       Serial.println("value = 3");
+      digitalWrite(5, HIGH);
+      delay(500);
+      digitalWrite(5, LOW);
+      delay(200);
     }
     if (value == 4) {
       Serial.println("value = 4");
+      digitalWrite(6, HIGH);
+      delay(500);
+      digitalWrite(6, LOW);
+      delay(200);
     }
   }
 

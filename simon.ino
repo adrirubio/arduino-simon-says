@@ -66,8 +66,10 @@ void loop() {
     }
   }
 
-  while (true) {
-    static bool pressed = false;
+  byte presses = 0;
+  while (presses < patternLen) {
+
+    bool pressed = false;
     byte anyPressed = 0;
 
     // red
@@ -104,14 +106,14 @@ void loop() {
 
     if (anyPressed && !pressed) {
       pressed = true;
-      if (patternLen < max_steps)
-        pattern[patternLen++] = random(1, 5);
     }
 
     if (!anyPressed && pressed) {
       pressed = false;
-      break;
+      presses++;
     }
   }
+  startOfRound = true;
+  pressed = false;
   delay(100);
 }

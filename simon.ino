@@ -30,10 +30,25 @@ void loop() {
 
   Serial.print("List now: ");
   for (byte i = 0; i < patternLen; i++) {
-    Serial.print(pattern[1]);
-    Serial.print('');
+    Serial.print(pattern[i]);
+    Serial.print(' ');
   }
   Serial.println();
+
+  for (byte value : pattern) {
+    if (value == 1) {
+      Serial.println("value = 1");
+    }
+    if (value == 2) {
+      Serial.println("value = 2");
+    }
+    if (value == 3) {
+      Serial.println("value = 3");
+    }
+    if (value == 4) {
+      Serial.println("value = 4");
+    }
+  }
 
   while (true) {
     static bool pressed = false;
@@ -44,7 +59,7 @@ void loop() {
       digitalWrite(3, HIGH);
       anyPressed = 1;
     } else {
-      digitalWrite(3, LOW)
+      digitalWrite(3, LOW);
     }
 
     // yellow
@@ -52,7 +67,7 @@ void loop() {
       digitalWrite(4, HIGH);
       anyPressed = 2;
     } else {
-      digitalWrite(4, LOW)
+      digitalWrite(4, LOW);
     }
 
     // blue
@@ -68,10 +83,10 @@ void loop() {
       digitalWrite(6, HIGH);
       anyPressed = 4;
     } else {
-      digitalWrite(6, LOW)
+      digitalWrite(6, LOW);
     }
 
-    if (!anyPressed && !pressed) {
+    if (anyPressed && !pressed) {
       pressed = true;
       if (patternLen < max_steps)
         pattern[patternLen++] = random(1, 5);

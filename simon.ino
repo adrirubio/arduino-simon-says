@@ -1,8 +1,12 @@
 // c++
 const byte max_steps = 20;
+const byte piezoPin = 7;
 
 byte pattern[max_steps];
 byte patternLen = 0;
+
+// piezo frequency
+const unsigned int feq[6] = {0, 523, 659, 784, 988, 262};
 
 void setup() {
   // leds
@@ -38,30 +42,42 @@ void loop() {
   for (byte value : pattern) {
     if (value == 1) {
       Serial.println("value = 1");
+      tone(piezoPin, feq[1]);
       digitalWrite(3, HIGH);
       delay(500);
+
       digitalWrite(3, LOW);
+      noTone(piezoPin);
       delay(200);
     }
     if (value == 2) {
       Serial.println("value = 2");
+      tone(piezoPin, feq[2]);
       digitalWrite(4, HIGH);
       delay(500);
+
       digitalWrite(4, LOW);
+      noTone(piezoPin);
       delay(200);
     }
     if (value == 3) {
       Serial.println("value = 3");
+      tone(piezoPin, feq[3]);
       digitalWrite(5, HIGH);
       delay(500);
+
       digitalWrite(5, LOW);
+      noTone(piezoPin);
       delay(200);
     }
     if (value == 4) {
       Serial.println("value = 4");
+      tone(piezoPin, feq[4]);
       digitalWrite(6, HIGH);
       delay(500);
+
       digitalWrite(6, LOW);
+      noTone(piezoPin);
       delay(200);
     }
   }
@@ -71,7 +87,7 @@ void loop() {
   byte lastPressed = 0;
 
   while (presses < patternLen) {
-
+    static byte sounding = 0;
     byte anyPressed = 0;
 
     // red
@@ -106,6 +122,16 @@ void loop() {
       digitalWrite(6, LOW);
     }
 
+    if (anyPressed && sounding == 0) {
+      tone(piezoPin, feq[anyPressed]);
+      sounding = anyPressed;
+    }
+
+    if (!anyPressed && sounding != 0) {
+      noTone(piezoPin);
+      sounding = 0;
+    }
+
     if (anyPressed && !pressed) {
       pressed = true;
       lastPressed = anyPressed;
@@ -118,7 +144,9 @@ void loop() {
       } else {
         Serial.println("Wrong button, game over!");
         delay(500);
-
+        tone(piezoPin, feq[5]);
+        delay(800);
+        noTone(piezoPin);
         // End game
         while (true);
       }

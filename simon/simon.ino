@@ -152,6 +152,24 @@ void loop() {
         tone(piezoPin, feq[5]);
         delay(800);
         noTone(piezoPin);
+
+        // flash leds for game over
+        digitalWrite(6, HIGH);
+        delay(150);
+        digitalWrite(6, LOW);
+
+        digitalWrite(5, HIGH);
+        delay(150);
+        digitalWrite(5, LOW);
+
+        digitalWrite(4, HIGH);
+        delay(150);
+        digitalWrite(4, LOW);
+
+        digitalWrite(3, HIGH);
+        delay(150);
+        digitalWrite(3, LOW);
+
         // Reset game
         patternLen = 0;
         delay(2000);

@@ -180,6 +180,29 @@ void loop() {
 
   if (patternLen < max_steps) {
     pattern[patternLen++] = random(1, 5);
+  } else {
+    Serial.println("Congratulations! You won!");
+
+    // leds flash for celebration
+    digitalWrite(3, HIGH);
+    delay(150);
+    digitalWrite(3, LOW);
+
+    digitalWrite(4, HIGH);
+    delay(150);
+    digitalWrite(4, LOW);
+
+    digitalWrite(5, HIGH);
+    delay(150);
+    digitalWrite(5, LOW);
+
+    digitalWrite(6, HIGH);
+    delay(150);
+    digitalWrite(6, LOW);
+
+    patternLen = 0;
+    delay(3000);
+    return;
   }
 }
 

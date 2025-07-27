@@ -26,20 +26,25 @@ void setup() {
 }
 
 void loop() {
-  static bool startOfRound = true;
-  if (startOfRound && patternLen < max_steps) {
-    pattern[patternLen++] = random(1, 5);
-    startOfRound = false;
-  }
+  delay(1000);
 
-  Serial.print("List now: ");
+  // countdown
+  Serial.println("3");
+  Serial.println("2");
+  Serial.println("1");
+
+  if (patternLen == 0)
+    pattern[patternLen++] = random(1, 5);
+
+  Serial.print("\nList now: ");
   for (byte i = 0; i < patternLen; i++) {
     Serial.print(pattern[i]);
     Serial.print(' ');
   }
   Serial.println();
 
-  for (byte value : pattern) {
+  for (byte i = 0; i < patternLen; ++i) {
+    byte value = pattern[i];
     if (value == 1) {
       Serial.println("value = 1");
       tone(piezoPin, feq[1]);
@@ -147,12 +152,16 @@ void loop() {
         tone(piezoPin, feq[5]);
         delay(800);
         noTone(piezoPin);
-        // End game
-        while (true);
+        // Reset game
+        patternLen = 0;
+        delay(2000);
+        return; // Exit loop() to restart
       }
     }
   }
-  startOfRound = true;
-  pressed = false;
-  delay(100);
+
+  if (patternLen < max_steps) {
+    pattern[patternLen++] = random(1, 5);
+  }
 }
+

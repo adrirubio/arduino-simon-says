@@ -1,8 +1,8 @@
 # arduino-simon-says
 Minimal Simon‑Says game for Arduino: 4 LEDs, 4 buttons
+This project recreates the classic Simon Says Game where it tests your memory to remember longer and longer sequences of lights.
 
 ## Demo & Full Video
-
 Watch a quick preview below (GIF), or download the full demo video
 
 ### Preview (GIF)
@@ -11,3 +11,22 @@ Watch a quick preview below (GIF), or download the full demo video
 ### Full Video
 
 [Click here to download the full demo video (MP4)](https://github.com/adrirubio/arduino-simon-says/raw/refs/heads/main/my-build/demos/arduino-simon-says-demo.mp4)
+
+## How It Works
+The game displays a sequence of lights accompanied by unique tones. Players must repeate the same sequence by pressing the correct pushbutton that corresponds to the led that lit up.
+
+## Components Used
+
+- Arduino Board (Uno R3 in my-build)
+- 4 colored LEDs (red, yellow, blue, green)
+- 4 pushbuttons
+- Resistors and wiring
+- 1 piezo buzzer (optional if sound is wanted)
+
+## Repo Structure
+
+- 'simon/simon.ino' - Main Arduino code with game logic
+- 'docs/' - Documentation including wiring diagram and components list
+- 'my-build' - Build files and demo videos
+
+

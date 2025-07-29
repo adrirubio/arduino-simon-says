@@ -13,7 +13,8 @@ Watch a quick preview below (GIF), or download the full demo video
 [Click here to download the full demo video (MP4)](https://github.com/adrirubio/arduino-simon-says/raw/refs/heads/main/my-build/demos/arduino-simon-says-demo.mp4)
 
 ## How It Works
-The game displays a sequence of lights accompanied by unique tones. Players must repeate the same sequence by pressing the correct pushbutton that corresponds to the led that lit up.
+
+The game displays a sequence of lights accompanied by unique tones. Players must repeat the same sequence by pressing the correct pushbutton that corresponds to the led that lit up.
 
 ## Components Used
 
@@ -25,8 +26,23 @@ The game displays a sequence of lights accompanied by unique tones. Players must
 
 ## Repo Structure
 
-- 'simon/simon.ino' - Main Arduino code with game logic
-- 'docs/' - Documentation including wiring diagram and components list
-- 'my-build' - Build files and demo videos
+- `simon/simon.ino` - Main Arduino code with game logic
+- `docs/` - Documentation including wiring diagram and components list
+- `my-build` - Build files and demo videos
 
+## Features
 
+- Random pattern generation
+- Visual feedback with colored LEDs
+- Audio feedback with distinct tones for each color
+- Serial monitor output for debugging
+
+## Screenshots
+
+Side view of the project:
+
+![Arduino Side View](https://raw.githubusercontent.com/adrirubio/arduino-simon-says/main/my-build/arduino-side-view.jpg)
+
+Top view of the project:
+
+![Arduino Top View](https://raw.githubusercontent.com/adrirubio/arduino-simon-says/main/my-build/arduino-top-view.jpg)

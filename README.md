@@ -37,6 +37,27 @@ The game displays a sequence of lights accompanied by unique tones. Players must
 - Audio feedback with distinct tones for each color
 - Serial monitor output for debugging
 
+## Quick Start
+
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/adrirubio/arduino-simon-says.git
+   ```
+
+2. **Open the Arduino sketch**
+   - Open `simon/simon.ino` in Arduino IDE
+
+3. **Wire your components**
+   - Connect LEDs to pins 3, 4, 5, 6
+   - Connect buttons to pins 9, 10, 11, 12
+   - Connect buzzer to pin 7 (optional)
+   - See `docs/` for more information on the wiring
+
+4. **Upload and play!**
+   - Upload the sketch to your Arduino
+   - Press Upload to start a new game
+   - Enjoy!
+
 ## Screenshots
 
 Side view of the project:
